@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :movies
-  has_manu :services
+  has_many :services
 
   def watched_movies
     self.movies.where(watched: true)

@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: db/wodup_development
+  database: db/moviebase_development
 
 test:
   <<: *default
-  database: db/wodup_test
+  database: db/moviebase_test
 
 production:
   <<: *default
-  database: db/wodup
+  database: db/moviebase

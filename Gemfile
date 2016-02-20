@@ -16,10 +16,10 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'phony_rails'
+gem 'web-console', '~> 2.0', group: :development
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'dotenv-rails'
   gem 'rspec-rails'
