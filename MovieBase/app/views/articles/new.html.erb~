@@ -1,4 +1,4 @@
-<h1>New Article</h1>
+<!--<h1>New Article</h1>-->
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '{your-app-id}',
+    appId      : '143526536033720',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
