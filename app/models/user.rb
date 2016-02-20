@@ -18,10 +18,16 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
+      user.token = auth['credentials']['token']
       if auth['info']
         user.name = auth['info']['name'] || ""
         user.email = auth['info']['email'] || ""
       end
     end
+  end
+
+  def self.koala(id)
+    facebook = Koala::Facebook::API.new(User.find(id).token)
+    facebook.get_object("me?fields=friends")
   end
 end
