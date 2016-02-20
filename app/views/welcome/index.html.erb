@@ -6,10 +6,11 @@
             <img src="http://images4.fanpop.com/image/photos/20500000/Tangled-Movie-Screencaps-disney-princess-20536448-1876-1080.jpg" alt="Tangled" class="img-rounded" width="600" />
             <img src="http://vignette1.wikia.nocookie.net/marvelcinematicuniverse/images/0/0a/Incredible-hulk-movie-screencaps.com-22.jpg/revision/latest?cb=20131109221336" alt="Incredible Hulk" class="img-rounded" width="600"/>
             <img src="http://images4.fanpop.com/image/photos/21600000/Scott-Pilgrim-movie-screencaps-scott-pilgrim-vs-the-world-21671758-1280-688.jpg" alt="Scott Pilgrim" class="img-rounded" width="600" />
-            <img src="http://vignette1.wikia.nocookie.net/harrypotter/images/2/2f/Harry-potter-half-blood-movie-screencaps.com-1550.jpg/revision/latest?cb=20150805015942" alt="Harry Potter" class="img-rounded" width="600" />    
+            <img src="http://vignette1.wikia.nocookie.net/harrypotter/images/2/2f/Harry-potter-half-blood-movie-screencaps.com-1550.jpg/revision/latest?cb=20150805015942" alt="Harry Potter" class="img-rounded" width="600" />
             <img src="https://davecsimpson.files.wordpress.com/2015/09/starwars2-movie-screencaps-com-8475.jpg" alt="Star Wars" class="img-rounded" width="600" />
           </div> <br>
-          <button type="submit" class="btn btn-primary">Log in with FaceBook</button>
+          <%= button_to "Log in with FaceBook", signin_path, class: "btn btn-primary", method: :get unless session[:user_id] %>
+          <%= button_to "Sign out", signout_path, class: "btn btn-primary" if session[:user_id] %>
         </div>
     </div>
     <div class="container">
