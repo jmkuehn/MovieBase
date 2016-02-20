@@ -1,14 +1,32 @@
 Rails.application.routes.draw do
   get 'welcome/index'
+<<<<<<< HEAD
   
+=======
+  get 'pages/welcomePage'
+>>>>>>> d20a5204ab5a874eb292460b71b7e08b54dd10b1
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+<<<<<<< HEAD
   root 'welcome#index'
 
 resources :articles
+=======
+#root 'welcome#index'
+
+Rails.application.routes.draw do
+ 
+  resources :members
+  resources :pages
+ 
+  root 'welcome#index'
+  #match '/welcomePage' => 'pages#welcomePage'
+  get "/:welcomePage" => "static#show"
+end
+>>>>>>> d20a5204ab5a874eb292460b71b7e08b54dd10b1
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
