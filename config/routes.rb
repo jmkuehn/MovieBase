@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  match '/auth/:provider/callback' => 'sessions#create'
-  match '/signout' => 'sessions#destroy', :as => :signout
-  match '/signin' => 'sessions#new', :as => :signin
+  match '/auth/:provider/callback' => 'sessions#create', via: [:get]
+  match '/signout' => 'sessions#destroy', :as => :signout, via: [:post]
+  match '/signin' => 'sessions#new', :as => :signin, via: [:get]
 end
