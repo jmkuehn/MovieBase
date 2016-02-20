@@ -32,7 +32,12 @@
         <li><a href="#">Advanced Search</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Account</a></li>
+        <% if session[:user_id] %>
+          <li><%= link_to "My Account", "/#" %></li>
+          <li><%= link_to "Sign out", signout_path, method: :post %></li>
+        <% else %>
+          <li><%= link_to "Sign In with FaceBook", signin_path, method: :get %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

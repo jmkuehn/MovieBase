@@ -1,53 +1,52 @@
-<div style="text-align:center">
-    <div class="container-fluid" style="padding-top: 70px;">
-        <div class="jumbotron">
-          <h2>Welcome to a new way to browse for movies!</h2>
-          <div id="slideShowImages" style="margin:0 auto">
-            <img src="http://images4.fanpop.com/image/photos/20500000/Tangled-Movie-Screencaps-disney-princess-20536448-1876-1080.jpg" alt="Tangled" class="img-rounded" width="600" />
-            <img src="http://vignette1.wikia.nocookie.net/marvelcinematicuniverse/images/0/0a/Incredible-hulk-movie-screencaps.com-22.jpg/revision/latest?cb=20131109221336" alt="Incredible Hulk" class="img-rounded" width="600"/>
-            <img src="http://images4.fanpop.com/image/photos/21600000/Scott-Pilgrim-movie-screencaps-scott-pilgrim-vs-the-world-21671758-1280-688.jpg" alt="Scott Pilgrim" class="img-rounded" width="600" />
-            <img src="http://vignette1.wikia.nocookie.net/harrypotter/images/2/2f/Harry-potter-half-blood-movie-screencaps.com-1550.jpg/revision/latest?cb=20150805015942" alt="Harry Potter" class="img-rounded" width="600" />
-            <img src="https://davecsimpson.files.wordpress.com/2015/09/starwars2-movie-screencaps-com-8475.jpg" alt="Star Wars" class="img-rounded" width="600" />
-          </div> <br>
-          <%= button_to "Log in with FaceBook", signin_path, class: "btn btn-primary", method: :get unless session[:user_id] %>
-          <%= button_to "Sign out", signout_path, class: "btn btn-primary" if session[:user_id] %>
-        </div>
+<div class="text-center">
+  <div class="container" style="padding-top: 70px;">
+    <% unless session[:user_id] %>
+      <div class="jumbotron">
+        <h2>Welcome to a new way to browse for movies!</h2>
+        <div id="slideShowImages" style="margin:0 auto">
+          <img src="http://images4.fanpop.com/image/photos/20500000/Tangled-Movie-Screencaps-disney-princess-20536448-1876-1080.jpg" alt="Tangled" class="img-rounded" width="600" />
+          <img src="http://vignette1.wikia.nocookie.net/marvelcinematicuniverse/images/0/0a/Incredible-hulk-movie-screencaps.com-22.jpg/revision/latest?cb=20131109221336" alt="Incredible Hulk" class="img-rounded" width="600"/>
+          <img src="http://images4.fanpop.com/image/photos/21600000/Scott-Pilgrim-movie-screencaps-scott-pilgrim-vs-the-world-21671758-1280-688.jpg" alt="Scott Pilgrim" class="img-rounded" width="600" />
+          <img src="http://vignette1.wikia.nocookie.net/harrypotter/images/2/2f/Harry-potter-half-blood-movie-screencaps.com-1550.jpg/revision/latest?cb=20150805015942" alt="Harry Potter" class="img-rounded" width="600" />
+          <img src="https://davecsimpson.files.wordpress.com/2015/09/starwars2-movie-screencaps-com-8475.jpg" alt="Star Wars" class="img-rounded" width="600" />
+        </div> <br>
+      </div>
+    <% end %>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Most Popular</h3>
+      </div>
+      <div class="panel-body">
+        dot dot dot....
+      </div>
     </div>
-    <div class="container">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Most Popular</h3>
-        </div>
-        <div class="panel-body">
-          dot dot dot....
-        </div>
-      </div>
 
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Newest Releases</h3>
-        </div>
-        <div class="panel-body">
-          dot dot dot....
-        </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Newest Releases</h3>
       </div>
+      <div class="panel-body">
+        dot dot dot....
+      </div>
+    </div>
 
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Recommended for you</h3>
-        </div>
-        <div class="panel-body">
-          dot dot dot....
-        </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Recommended for you</h3>
       </div>
+      <div class="panel-body">
+        dot dot dot....
+      </div>
+    </div>
 
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Maybe an additional one here</h3>
-        </div>
-        <div class="panel-body">
-          dot dot dot....
-        </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Maybe an additional one here</h3>
       </div>
+      <div class="panel-body">
+        dot dot dot....
+      </div>
+    </div>
   </div>
 </div>
