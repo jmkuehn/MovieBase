@@ -40,6 +40,21 @@ class Movie < ActiveRecord::Base
       @releasedate = "N/A"
     end
 
+    if response["Product"]["ReferencedProducts"]
+      @related = []
+      response["Product"]["ReferencedProducts"].each do |product|
+        unless product["Value"]["Id"] == movie_id
+          @related_movie = {
+            "id" => product["Value"]["Id"],
+            "thumbnail" => product["Value"]["ThumbnailUrl"]
+          }
+          @related << @related_movie
+        end
+      end
+    else
+      @related = nil
+    end
+
     @title = response["Product"]["Name"] || "N/A"
     @thumbnail = response["Product"]["ThumbnailUrl"] || "N/A"
     @short_description = response["Product"]["ShortDescription"] || "N/A"
@@ -54,7 +69,8 @@ class Movie < ActiveRecord::Base
       "genre" => @genre,
       "cast" => @cast,
       "release_date" => @releasedate,
-      "runtime" => @runtime
+      "runtime" => @runtime,
+      "related" => @related
     }
   end
 
