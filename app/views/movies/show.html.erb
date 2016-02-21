@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="media">
       <div class="media-left">
-        <img class="media-object" src="<%= @movie["thumbnail"] %>" alt="movie poster" height="200">
+        <img class="media-object" src="<%= @movie["thumbnail"] %>" alt="movie poster" height="400">
         <p><%= link_to "I watched this!", watched_movie_path(@movie["id"]), method: :post unless current_user.watched?(@movie["id"]) || current_user.unwatched?(@movie["id"]) %></p>
         <p><%= link_to "I haven't watched this!", unwatched_movie_path(@movie["id"]), method: :post unless current_user.watched?(@movie["id"]) || current_user.unwatched?(@movie["id"]) %></p>
         <p><%= link_to "I finally got around to watching this one!", watched_movie_path(@movie["id"]), method: :post if current_user.unwatched?(@movie["id"]) %></p>
@@ -15,7 +15,7 @@
             <div class="panel-heading">
               <h3 class="panel-title">Info</h3>
             </div>
-            <div class="panel-body" style="padding-left:0;height:20em;overflow-y:scroll;">
+            <div class="panel-body" style="padding-left:0;height:15em;overflow-y:scroll;font-size:150%">
               <div class="table-responsive">
                 <table class="table">
                   <tr>
@@ -48,7 +48,7 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Description</h3>
               </div>
-              <div class="panel-body" style="padding-left:0;height:20em;overflow-y:scroll;">
+              <div class="panel-body" style="padding-left:0;height:15em;overflow-y:scroll;font-size:150%">
                 <%= @movie["short_description"] %>
               </div>
             </div>
