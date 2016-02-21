@@ -8,7 +8,7 @@
       <% if @user.watched_movies.empty? %>
         <p class="text-center">Looks like there are no watched movies! Sorry!</p>
       <% else %>
-        <% @user.watched_movies.in_groups_of(6).each do |movie_slices| %>
+        <% @user.watched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
@@ -29,7 +29,7 @@
       <% if @user.unwatched_movies.empty? %>
         <p class="text-center">Looks like there are no unwatched movies! Sorry!</p>
       <% else %>
-        <% @user.unwatched_movies.in_groups_of(5).each do |movie_slices| %>
+        <% @user.unwatched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
@@ -51,7 +51,7 @@
     <hr />
     <div class="row" style="padding-bottom: 20px">
       <% @user.shared_unwatched_movies.each do |movie| %>
-        <div class="col-md-2">
+        <div class="col-lg-3">
           <h3 class="text-center"><%= truncate movie["friend"], :length => 20, :separator => /\w/, :omission => "..." %></h3>
           <hr />
           <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="400"></a>
