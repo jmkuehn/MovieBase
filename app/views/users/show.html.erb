@@ -9,10 +9,10 @@
         <p class="text-center">Looks like there are no watched movies! Sorry!</p>
       <% else %>
         <% @user.watched_movies.in_groups_of(4).each do |movie_slices| %>
-          <div class="row" style="overflow-x: scroll">
+          <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                  <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
@@ -33,7 +33,7 @@
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                   <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height ="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
@@ -51,7 +51,7 @@
     <hr />
     <div class="row" style="padding-bottom: 20px">
       <% @user.shared_unwatched_movies.each do |movie| %>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <h3 class="text-center"><%= truncate movie["friend"], :length => 20, :separator => /\w/, :omission => "..." %></h3>
           <hr />
           <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="400"></a>
