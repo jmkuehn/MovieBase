@@ -26,9 +26,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <%= simple_form_for :search,  url: movies_search_path , :method => :get, html: { class: "navbar-form navbar-left" } do |f| %>
-        <%= f.input :search_string, placeholder: "Type a movie name...", label: false %>
-        <%= f.submit "Search", class: "btn btn-default" %>
+      <% if current_user %>
+        <%= simple_form_for :search,  url: movies_search_path , :method => :get, html: { class: "navbar-form navbar-left" } do |f| %>
+          <%= f.input :search_string, placeholder: "Type a movie name...", label: false %>
+          <%= f.submit "Search", class: "btn btn-default" %>
+        <% end %>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if session[:user_id] %>
