@@ -16,6 +16,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, true)
 
+    flash[:success] = "You have successfully watched a movie!"
     redirect_to movie_path(@movie.api_id)
   end
 
@@ -25,6 +26,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, false)
 
+    flash[:success] = "You want to watch a movie!"
     redirect_to movie_path(@movie.api_id)
   end
 
