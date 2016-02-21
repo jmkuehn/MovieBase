@@ -2,11 +2,11 @@
   <h1 class="text-center"><%= @user.name %></h1>
   <hr />
   <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-center">Watched Movies</h2>
+    <div class="col-md-6">
+      <h2 class="text-center">Movies Watched</h2>
       <hr />
       <% if @user.watched_movies.empty? %>
-        <p class="text-center">Looks like there are no watched movies! Sorry!</p>
+        <p class="text-center">Looks like you haven't watched any movies yet! Sorry!</p>
       <% else %>
         <% @user.watched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row">
@@ -23,11 +23,11 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-md-12">
-      <h2 class="text-center">Unwatched Movies</h2>
+    <div class="col-md-6">
+      <h2 class="text-center">Movies To Watch</h2>
       <hr />
       <% if @user.unwatched_movies.empty? %>
-        <p class="text-center">Looks like there are no unwatched movies! Sorry!</p>
+        <p class="text-center">Looks like there aren't any movies that you want to watch! Sorry!</p>
       <% else %>
         <% @user.unwatched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row">
