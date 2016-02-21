@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
     if @movie.nil?
       @api_movie = Movie.get_by_id(id)
       @movie = Movie.new
-      @movie.api_id = params[:id]
+      @movie.api_id = id
       @movie.title = @api_movie["title"]
       @movie.thumbnail = @api_movie["thumbnail"]
       @movie.save!
