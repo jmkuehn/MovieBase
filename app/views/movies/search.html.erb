@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding-top: 70px;">
+<div class="container-fluid">
   <h1 class="text-center">Your Search Results</h1>
   <hr />
   <% if !@movies.nil? %>
@@ -6,15 +6,14 @@
       <div class="row">
         <% movie_slices.each do |movie| %>
           <% if movie %>
-          <% puts movie %>
             <div class="col-md-4">
               <h2 class="text-center"><%= link_to movie["title"], movie_path(movie["id"]) %></h2>
               <hr />
               <p><%= movie["short_description"] %></p>
               <p>Rating: <%= movie["rating"] %></p>
-              <%= link_to "I watched this!", watched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %>
-              <%= link_to "I haven't watched this!", unwatched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %>
-              <%= link_to "I finally got around to watching this one!", watched_movie_path(movie["id"]), method: :post if current_user.unwatched?(movie["id"]) %>
+              <p><%= link_to "I watched this!", watched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %></p>
+              <p><%= link_to "I haven't watched this!", unwatched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %></p>
+              <p><%= link_to "I finally got around to watching this one!", watched_movie_path(movie["id"]), method: :post if current_user.unwatched?(movie["id"]) %></p>
             </div>
           <% end %>
         <% end %>

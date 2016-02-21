@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'statuses/watched'
-
-  get 'statuses/unwatched'
-
   resources :users
   resources :pages
   resources :movies
@@ -10,6 +6,8 @@ Rails.application.routes.draw do
   get 'movies_search' => 'movies#search'
   post 'unwatched_movie' => 'movies#unwatched'
   post 'watched_movie' => 'movies#watched'
+
+  get 'users/:id/friends' => 'users#friends', as: 'friends'
 
   root 'welcome#index'
 

@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :require_authentication, except: [ :search ]
+
   def show
     @movie = Movie.get_by_id(params[:id])
   end
