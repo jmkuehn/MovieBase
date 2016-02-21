@@ -14,7 +14,7 @@
               <% if movie %>
                 <div class="col-md-2">
                  <hr />
-                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; max-width:100%; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                 </div>
               <% end %>
@@ -35,7 +35,7 @@
               <% if movie %>
                 <div class="col-md-2">
                   <hr />
-                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; max-width: 100%; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                 </div>
               <% end %>
@@ -54,7 +54,7 @@
         <div class="col-md-2">
           <h3 class="text-center"><%= truncate movie["friend"], :length => 20, :separator => /\w/, :omission => "..." %></h3>
           <hr />
-          <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto; max-width: 100%" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="400"></a>
+          <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="400"></a>
         </div>
       <% end %>
     </div>
