@@ -37,10 +37,10 @@
   			</button>
   			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     		<li><%= link_to "Friends", "/#" %></li>
-    		<li role="separator" class="divider"></li>
-    		<li><%= link_to "Sign out", signout_path, method: :post %></li>
-  </ul>
-</div>
+    			<li role="separator" class="divider"></li>
+    			<li><%= link_to "Sign out", signout_path, method: :post %></li>
+  			</ul>
+			</div>
         <% else %>
           <li><%= link_to "Sign In with facebook", signin_path, method: :get %></li>
         <% end %>

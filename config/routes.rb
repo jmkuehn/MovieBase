@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback' => 'sessions#create', via: [:get]
   match '/signout' => 'sessions#destroy', :as => :signout, via: [:post]
   match '/signin' => 'sessions#new', :as => :signin, via: [:get]
+
+  resource :users do
+  		get 'friends'
+	end
 end
