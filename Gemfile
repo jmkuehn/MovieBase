@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'koala'
 gem 'web-console', '~> 2.0', group: :development
 
 group :development, :test do
