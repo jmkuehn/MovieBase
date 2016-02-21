@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
-  def index
+  def show
+    @movie = Movie.get_by_id(params[:id])
   end
 end
