@@ -17,7 +17,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "MovieBase", root_path, class: "navbar-brand" %>
+      <% if current_user %>
+        <%= link_to "MovieBase", current_user, class: "navbar-brand" %>
+      <% else %>
+        <%= link_to "MovieBase", root_path, class: "navbar-brand" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

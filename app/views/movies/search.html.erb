@@ -12,9 +12,9 @@
               <hr />
               <p><%= movie["short_description"] %></p>
               <p>Rating: <%= movie["rating"] %></p>
-              <%= link_to "I watched this!", watched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %>
-              <%= link_to "I haven't watched this!", unwatched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %>
-              <%= link_to "I finally got around to watching this one!", watched_movie_path(movie["id"]), method: :post if current_user.unwatched?(movie["id"]) %>
+              <p><%= link_to "I watched this!", watched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %></p>
+              <p><%= link_to "I haven't watched this!", unwatched_movie_path(movie["id"]), method: :post unless current_user.watched?(movie["id"]) || current_user.unwatched?(movie["id"]) %></p>
+              <p><%= link_to "I finally got around to watching this one!", watched_movie_path(movie["id"]), method: :post if current_user.unwatched?(movie["id"]) %></p>
             </div>
           <% end %>
         <% end %>

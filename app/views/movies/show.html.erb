@@ -2,9 +2,10 @@
   <div class="container-fluid" style="padding-top: 70px;">
     <div class="media">
       <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="<%= @movie["thumbnail"] %>" alt="movie poster" height="200">
-        </a>
+        <img class="media-object" src="<%= @movie["thumbnail"] %>" alt="movie poster" height="200">
+        <p><%= link_to "I watched this!", watched_movie_path(@movie["id"]), method: :post unless current_user.watched?(@movie["id"]) || current_user.unwatched?(@movie["id"]) %></p>
+        <p><%= link_to "I haven't watched this!", unwatched_movie_path(@movie["id"]), method: :post unless current_user.watched?(@movie["id"]) || current_user.unwatched?(@movie["id"]) %></p>
+        <p><%= link_to "I finally got around to watching this one!", watched_movie_path(@movie["id"]), method: :post if current_user.unwatched?(@movie["id"]) %></p>
       </div>
     <div class="media-body">
       <h4 class="media-heading" style="text-align:left"><%= @movie["title"] %></h4>
@@ -54,7 +55,7 @@
           </div>
         </div>
         <br>
-        <% unless @movie["related"].empty? %>
+        <% unless @movie["related"].nil? %>
           <div class="col-md-12" style="padding:0">
             <div class="panel panel-info">
               <div class="panel-heading">
