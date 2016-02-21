@@ -9,13 +9,13 @@
         <p class="text-center">Looks like there are no watched movies! Sorry!</p>
       <% else %>
         <% @user.watched_movies.in_groups_of(6).each do |movie_slices| %>
-          <div class="row">
+          <div class="row" style="overflow-x: scroll">
             <% movie_slices.each do |movie| %>
               <% if movie %>
                 <div class="col-md-2">
                  <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="400"></a>
-                  <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
+                  <h3 class="text-center"><%= "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                 </div>
               <% end %>
             <% end %>
