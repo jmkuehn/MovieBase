@@ -6,13 +6,12 @@
       <h2 class="text-center">Watched Movies</h2>
       <hr />
       <% if @user.watched_movies.empty? %>
-        <p>Looks like there are no watched movies! Sorry!</p>
+        <p class="text-center">Looks like there are no watched movies! Sorry!</p>
       <% else %>
         <% @user.watched_movies.in_groups_of(3).each do |movie_slices| %>
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-              <% puts movie %>
                 <div class="col-md-4">
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 16, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                   <hr />
@@ -34,7 +33,6 @@
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-              <% puts movie %>
                 <div class="col-md-4">
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 16, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                   <hr />
