@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :statuses
+  has_many :statuses, dependent: :destroy
   has_many :movies, through: :statuses
 
   has_many :services
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
         @s_movies.each do |movie1|
           @f_movies.each do |movie2|
             if movie1 == movie2
-              @movies_and_friends << { "movie" => movie1, "friend" => friend.name }
+              @movies_and_friends.push({ "movie" => movie1, "friend" => friend.name })
             end
           end
         end
