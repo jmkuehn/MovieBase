@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :members
   resources :pages
+  resources :movies
 
   root 'welcome#index'
 
