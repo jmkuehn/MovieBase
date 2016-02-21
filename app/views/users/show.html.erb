@@ -8,11 +8,11 @@
       <% if @user.watched_movies.empty? %>
         <p class="text-center">Looks like there are no watched movies! Sorry!</p>
       <% else %>
-        <% @user.watched_movies.in_groups_of(6).each do |movie_slices| %>
+        <% @user.watched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row" style="overflow-x: scroll">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-                <div class="col-md-2">
+                <div class="col-lg-3">
                  <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
@@ -29,11 +29,11 @@
       <% if @user.unwatched_movies.empty? %>
         <p class="text-center">Looks like there are no unwatched movies! Sorry!</p>
       <% else %>
-        <% @user.unwatched_movies.in_groups_of(6).each do |movie_slices| %>
+        <% @user.unwatched_movies.in_groups_of(4).each do |movie_slices| %>
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-                <div class="col-md-2">
+                <div class="col-lg-3">
                   <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height ="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
