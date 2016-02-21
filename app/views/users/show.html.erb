@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="text-center"><%= @user.name %></h1>
+  <!-- <h1 class="text-center"><%= @user.name %></h1> -->
   <hr />
   <div class="row">
     <div class="col-md-12">
@@ -29,11 +29,11 @@
       <% if @user.unwatched_movies.empty? %>
         <p class="text-center">Looks like there are no unwatched movies! Sorry!</p>
       <% else %>
-        <% @user.unwatched_movies.in_groups_of(3).each do |movie_slices| %>
+        <% @user.unwatched_movies.in_groups_of(6).each do |movie_slices| %>
           <div class="row">
             <% movie_slices.each do |movie| %>
               <% if movie %>
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 16, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                   <hr />
                   <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="400"></a>
@@ -51,7 +51,7 @@
     <hr />
     <div class="row" style="padding-bottom: 20px">
       <% @user.shared_unwatched_movies.each do |movie| %>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <h3 class="text-center"><%= truncate movie["friend"], :length => 20, :separator => /\w/, :omission => "..." %></h3>
           <hr />
           <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="400"></a>
