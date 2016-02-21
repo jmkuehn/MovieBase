@@ -1,0 +1,26 @@
+<div class="container-fluid" style="padding-top: 70px;">
+  <h1 class="text-center">Your Search Results</h1>
+  <hr />
+  <% if !@movies.nil? %>
+    <% @movies.in_groups_of(3).each do |movie_slices| %>
+      <div class="row">
+        <% movie_slices.each do |movie| %>
+          <% if movie %>
+            <div class="col-md-4">
+              <h2 class="text-center"><%= link_to movie["title"], movie_path(movie["id"]) %></h2>
+              <hr />
+              <p><%= movie["short_description"] %></p>
+              <p>Rating: <%= movie["rating"] %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>Looks like there are no movies! Sorry! Try another search phrase.</p>
+      </div>
+    </div>
+  <% end %>
+</div>
