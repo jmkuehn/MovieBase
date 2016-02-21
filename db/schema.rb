@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160221082155) do
     t.integer  "user_id"
     t.integer  "movie_id"
     t.boolean  "watched",    default: false, null: false
+    t.integer  "rating"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
