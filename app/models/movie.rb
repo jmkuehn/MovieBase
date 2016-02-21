@@ -1,8 +1,8 @@
 class Movie < ActiveRecord::Base
-  belongs_to :user
-  has_many :services
+  has_many :statuses
+  has_many :users, through: :statuses
 
-  validates :watched, presence: true
+  has_many :services
 
   def self.get_by_id(movie_id)
     response = HTTParty.get("http://metadata.sls1.cdops.net/Product/SystemId/e5ce3167-4e0b-4867-a8c3-c8f23aec5e71/DistributionChannel/20389393-b2e4-4f65-968e-75a5227e544c/Id/#{movie_id}")
@@ -90,5 +90,7 @@ class Movie < ActiveRecord::Base
     else
       @movies = nil
     end
+
+    @movies
   end
 end

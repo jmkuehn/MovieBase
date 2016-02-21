@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :movies
+  has_many :statuses
+  has_many :movies, through: :statuses
+
   has_many :services
 
   def watched_movies
@@ -29,5 +31,23 @@ class User < ActiveRecord::Base
   def self.koala(id)
     facebook = Koala::Facebook::API.new(User.find(id).token)
     facebook.get_object("me?fields=friends")
+  end
+
+  def watched?(movie_api_id)
+    @status = self.statuses.where(movie: Movie.find_by_api_id(movie_api_id))
+    if @status.exists?
+      @status.first.watched
+    else
+      false
+    end
+  end
+
+  def unwatched?(movie_api_id)
+    @status = self.statuses.where(movie: Movie.find_by_api_id(movie_api_id))
+    if @status.exists?
+      !@status.first.watched
+    else
+      false
+    end
   end
 end

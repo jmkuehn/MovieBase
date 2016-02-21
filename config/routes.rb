@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  get 'statuses/watched'
+
+  get 'statuses/unwatched'
+
   resources :members
   resources :pages
   resources :movies
 
   get 'movies_search' => 'movies#search'
+  post 'unwatched_movie' => 'movies#unwatched'
+  post 'watched_movie' => 'movies#watched'
 
   root 'welcome#index'
 
