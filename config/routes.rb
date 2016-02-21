@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :pages
   resources :movies
 
+  get 'movies_search' => 'movies#search'
+
   root 'welcome#index'
 
   match '/auth/:provider/callback' => 'sessions#create', via: [:get]
