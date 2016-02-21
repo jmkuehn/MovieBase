@@ -14,7 +14,7 @@
               <% if movie %>
                 <div class="col-md-2">
                  <hr />
-                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                 </div>
               <% end %>
@@ -35,7 +35,7 @@
               <% if movie %>
                 <div class="col-md-2">
                   <hr />
-                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto; height: 400" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster"></a>
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height ="400"></a>
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 32, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                 </div>
               <% end %>
