@@ -15,7 +15,7 @@
                 <div class="col-md-4">
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 16, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                   <hr />
-                  <img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="200">
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="200"></a>
                 </div>
               <% end %>
             <% end %>
@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                   <h3 class="text-center"><%= link_to "#{truncate movie.title, :length => 16, :separator => /\w/, :omission => "..."}".html_safe, movie_path(movie.api_id) %></h3>
                   <hr />
-                  <img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="200">
+                  <a href="<%= movie_path(movie.api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie.thumbnail %>" alt="movie poster" height="200"></a>
                 </div>
               <% end %>
             <% end %>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <% unless @user.shared_unwatched_movies.empty? %>
-    <hr />
+    <hr style="padding-top: 20px" />
     <h2 class="text-center">Watch these movies with your friends!</h2>
     <hr />
     <div class="row" style="padding-bottom: 20px">
