@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, true)
 
-    redirect_to root_path
+    redirect_to current_user
   end
 
   def unwatched
@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, false)
 
-    redirect_to root_path
+    redirect_to current_user
   end
 
   private

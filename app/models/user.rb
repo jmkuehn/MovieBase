@@ -5,11 +5,19 @@ class User < ActiveRecord::Base
   has_many :services
 
   def watched_movies
-    self.movies.where(watched: true)
+    @movies = []
+    self.statuses.where(watched: true).each do |status|
+      @movies << status.movie
+    end
+    @movies
   end
 
   def unwatched_movies
-    self.movies.where(watched: false)
+    @movies = []
+    self.statuses.where(watched: false).each do |status|
+      @movies << status.movie
+    end
+    @movies
   end
 
   def friends_with_movielists

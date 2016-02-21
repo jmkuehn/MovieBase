@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'statuses/unwatched'
 
-  resources :members
+  resources :users
   resources :pages
   resources :movies
 
