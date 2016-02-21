@@ -49,12 +49,12 @@
     <hr />
     <h2 class="text-center">Watch these movies with your friends!</h2>
     <hr />
-    <div class="row">
+    <div class="row" style="padding-bottom: 20px">
       <% @user.shared_unwatched_movies.each do |movie| %>
         <div class="col-md-3">
           <h3 class="text-center"><%= truncate movie["friend"], :length => 20, :separator => /\w/, :omission => "..." %></h3>
           <hr />
-          <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="200">
+          <a href="<%= movie_path(movie["movie"].api_id) %>"><img style="margin: 0 auto" class="media-object" src="<%= movie["movie"].thumbnail %>" alt="movie poster" height="200"></a>
         </div>
       <% end %>
     </div>
