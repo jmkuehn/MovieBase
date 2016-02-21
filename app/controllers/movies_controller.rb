@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :require_authentication
+  before_action :require_authentication, except: [ :search ]
 
   def show
     @movie = Movie.get_by_id(params[:id])
@@ -16,8 +16,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, true)
 
-    flash[:success] = "Successfully watched!"
-    redirect_to movie_path(@movie.api_id)
+    redirect_to current_user
   end
 
   def unwatched
@@ -26,8 +25,7 @@ class MoviesController < ApplicationController
 
     @status.update_attribute(:watched, false)
 
-    flash[:success] = "Successfully added you your watch list!"
-    redirect_to movie_path(@movie.api_id)
+    redirect_to current_user
   end
 
   private
